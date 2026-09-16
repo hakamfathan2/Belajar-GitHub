@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hakam El Fathan | Student Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8ff;
+            color: #172554;
+        }
+
+        /* NAVBAR */
+        nav {
+            width: 100%;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .logo span {
+            color: #0f172a;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #2563eb;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 140px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .small-title {
+            color: #2563eb;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-3px);
+        }
+
+        .secondary {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+        }
+
+        .secondary:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* PROFILE CARD */
+        .profile-card {
+            width: 350px;
+            padding: 35px;
+            background: white;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(37,99,235,0.18);
+        }
+
+        .profile-icon {
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2563eb, #60a5fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 60px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .profile-card h2 {
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .profile-card p {
+            color: #64748b;
+        }
+
+        /* ABOUT */
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #0f172a;
+        }
+
+        .section-title span {
+            color: #2563eb;
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-card {
+            max-width: 850px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            line-height: 1.8;
+            color: #475569;
+            text-align: center;
+        }
+
+        /* SKILLS */
+        .skills {
+            background: #eff6ff;
+        }
+
+        .skill-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .skill-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: #1e40af;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* PROJECT */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+        }
+
+        .project-image {
+            height: 170px;
+            background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 45px;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #1d4ed8;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+            color: #dbeafe;
+        }
+
+        .contact .btn {
+            background: white;
+            color: #1d4ed8;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 25px;
+            text-align: center;
+            background: #0f172a;
+            color: #cbd5e1;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 130px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skill-container,
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Hakam<span>.</span></div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <div class="small-title">👋 Hello, I'm a Student</div>
+
+            <h1>
+                Hakam<br>
+                <span>El Fathan</span>
+            </h1>
+
+            <p>
+                Saya adalah seorang murid yang memiliki semangat
+                untuk belajar, berkarya, dan mengembangkan kemampuan
+                di bidang teknologi dan desain.
+            </p>
+
+            <div class="buttons">
+                <a href="#about" class="btn primary">Tentang Saya</a>
+                <a href="#projects" class="btn secondary">Lihat Project</a>
+            </div>
+        </div>
+
+
+        <div class="profile-card">
+            <div class="profile-icon">HE</div>
+
+            <h2>Hakam El Fathan</h2>
+            <p>Student • Designer • Learner</p>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>Tentang <span>Saya</span></h2>
+        </div>
+
+        <div class="about">
+            <div class="about-card">
+                <p>
+                    Halo! Nama saya <b>Hakam El Fathan</b>.
+                    Saya adalah seorang murid yang senang mempelajari
+                    hal-hal baru, terutama dalam bidang teknologi,
+                    desain grafis, dan pembuatan project digital.
+                </p>
+
+                <br>
+
+                <p>
+                    Website ini dibuat sebagai landing page untuk
+                    memperkenalkan diri, kemampuan, dan beberapa
+                    project yang pernah saya kerjakan.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+        </div>
+
+        <div class="skill-container">
+
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <p>
+                    Membuat poster, thumbnail, presentasi,
+                    dan berbagai desain digital.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>Web Design</h3>
+                <p>
+                    Membuat desain dan website sederhana
+                    menggunakan HTML dan CSS.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🤖</div>
+                <h3>Technology</h3>
+                <p>
+                    Mempelajari teknologi, coding,
+                    micro:bit, dan project elektronik.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <div class="section-title">
+            <h2>My <span>Projects</span></h2>
+        </div>
+
+        <div class="projects">
+
+            <div class="project-card">
+                <div class="project-image">🚗</div>
+
+                <div class="project-content">
+                    <h3>Tinybit Bluetooth</h3>
+                    <p>
+                        Project kendaraan mini yang dikendalikan
+                        menggunakan Bluetooth dan micro:bit.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-image">🎮</div>
+
+                <div class="project-content">
+                    <h3>Scratch Game</h3>
+                    <p>
+                        Membuat game sederhana menggunakan
+                        Scratch dengan konsep pixel art.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="project-card">
+                <div class="project-image">🖌️</div>
+
+                <div class="project-content">
+                    <h3>Graphic Design</h3>
+                    <p>
+                        Membuat berbagai desain poster,
+                        thumbnail, dan konten visual.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <h2>Let's Connect!</h2>
+
+        <p>
+            Terima kasih sudah mengunjungi website saya.
+        </p>
+
+        <a href="mailto:hakam@example.com" class="btn">
+            Contact Me
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Hakam El Fathan — Student Portfolio
+    </footer>
+
+</body>
+</html>
